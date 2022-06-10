@@ -3,8 +3,30 @@ on:
   push:
   pull_request:
 jobs:
-  composer-install:
+  test-ubuntu:
     runs-on: ubuntu-latest
+    steps:
+      - uses: mcgrue/actions-date@master #release v0.1
+        with:
+          args: date +%F
+      - name: Test date from busybox
+        run: |
+          echo "today's date: $(date +%d-%m-%Y)"
+          echo "datetime NOW: $(date +%d-%m-%Y--%H-%M-%S)"
+
+  test-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: mcgrue/actions-date@master #release v0.1
+        with:
+          args: date +%F
+      - name: Test date from busybox
+        run: |
+          echo "today's date: $(date +%d-%m-%Y)"
+          echo "datetime NOW: $(date +%d-%m-%Y--%H-%M-%S)"
+
+  test-mac:
+    runs-on: macos-latest
     steps:
       - uses: mcgrue/actions-date@master #release v0.1
         with:
