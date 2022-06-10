@@ -12,3 +12,4 @@ jobs:
       - name: Test date from busybox
         run: |
           echo "today's date: $(date +%d-%m-%Y)"
+          echo "datetime NOW: $(date +%d-%m-%Y--%H-%M-%S)"
